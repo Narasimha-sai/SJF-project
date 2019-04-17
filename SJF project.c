@@ -33,31 +33,6 @@ bursttime[i]=temp;
 }
 }
 }
-/*Arranging the table according to Burst time,
-Execution time and Arrival Time
-Arrival time <= Execution time
-*/
-for(j=0;j<n;j++)
-{
-btime=btime+bursttime[j];
-min=bursttime[k];
-for(i=k;i<n;i++)
-{
-if (btime>=arivaltime[i] && bursttime[i]<min)
-{
-temp=p[k];
-p[k]=p[i];
-p[i]=temp;
-temp=arivaltime[k];
-arivaltime[k]=arivaltime[i];
-arivaltime[i]=temp;
-temp=bursttime[k];
-bursttime[k]=bursttime[i];
-bursttime[i]=temp;
-}
-}
-k++;
-}
 wt[0]=0;
 sum=1;
 for(i=1;i<n;i++)
