@@ -1,8 +1,8 @@
 #include<stdio.h>
 int main()
 {
-int i,n,p[10]={1,2,3,4,5,6,7,8,9,10},min,k=1,btime=0;
-int bursttime[10],temp,j,arivaltime[10],wt[10],turnaroundtime[20],ta=1,sum=0,ct[10];
+int i,n,p[10]={1,2,3,4,5,6,7,8,9,10};
+int bursttime[10],temp,j,arivaltime[10],wt[10],turnaroundtime[20],sum=0,ct[10];
 float wavg=0,tavg=0,tsum=0,wsum=0;
 printf("\nEnter the number of processes:");
 scanf("%d",&n);
@@ -36,11 +36,11 @@ for(i=0;i<n;i++)
 	}
 }
 wt[0]=0;
-sum=1;
+sum=0;
+if(arivaltime[0]!=0)
+	  sum=sum+arivaltime[0];
 for(i=1;i<=n;i++)
 {
-	if(arivaltime[i-1]==0)
-	  sum=sum+1;
 sum=sum+bursttime[i-1];
 ct[i-1]=sum;
 turnaroundtime[i]=ct[i-1]-arivaltime[i-1];
@@ -60,12 +60,14 @@ for(i=0;i<n;i++)
 	printf("\n| p%d\t|  %d\t|  %d\t\t|\t  %d\t\t|\t%d\t   | \t\t %d\t\t|",p[i],bursttime[i],arivaltime[i],ct[i],turnaroundtime[i+1],wt[i+1]);
 }
 printf("\n-----------------------------------------------------------------------------------------------------\n");
+printf("GANTT CHART:- \n");
+printf("-----------------\n");
 for(i=0;i<n;i++)
 {
-printf("\np%d",p[i]);
+printf("-> p%d",p[i]);
 }
+printf("\n-----------------");
 printf("\n\n AVERAGE TURNAROUND TIME: %f",wavg);
 printf("\n AVERAGE TURN-AROUND-TIME : %f\n",tavg);
 return 0;
 }
-
