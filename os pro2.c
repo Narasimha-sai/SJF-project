@@ -6,17 +6,14 @@ int bt[10],temp,j,at[10],wt[10],tt[10],ta=1,sum=0;
 float wavg=0,tavg=0,tsum=0,wsum=0;
 printf("Enter the No. of processes :\n");
 scanf("%d",&n);
- 
 for(i=0;i<n;i++)
 {
 printf("Enter the Arrival time of p%d process :\n",i+1);
 scanf("%d",&at[i]);
 printf("Brust time of p%d process :\n",i+1);
 printf("%d\n",bt[i]=2*at[i]);
-}
- 
-/*Sorting According to Arrival Time*/
- 
+} 
+/*Sorting According to Arrival Time*/ 
 for(i=0;i<n;i++)
 {
 for(j=0;j<n;j++)
@@ -43,17 +40,14 @@ sum=sum+bt[i-1];
 wt[i]=sum-at[i];
 wsum=wsum+wt[i];
 }
- 
 wavg=(wsum/n);
 for(i=0;i<n;i++)
 {
 ta=ta+bt[i];
 tt[i]=ta-at[i];
 tsum=tsum+tt[i];
-}
- 
+} 
 tavg=(tsum/n);
- 
 printf("************************");
 printf("\n RESULT:-");
 printf("\nProcess\t Burst\t Arrival\t Waiting\t Turn-around-time" );
@@ -61,7 +55,6 @@ for(i=0;i<n;i++)
 {
 printf("\n p%d\t  %d\t  %d\t\t  %d\t\t\t%d",p[i],bt[i],at[i],wt[i],tt[i]);
 }
- 
 printf("\n\nAVERAGE WAITING TIME : %f",wavg);
 printf("\nAVERAGE TURN AROUND TIME : %f",tavg);
 return 0;
